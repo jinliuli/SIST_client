@@ -8,26 +8,56 @@
 		width: 800px;
 		margin: 30px auto;
 	}
-	.row {
-		/* border: 10px solid black; */
+	.row div {
+		border: 10px solid black;
 		width: 800;
 		margin-top: 10px;
-	}
-	.row div img {
-		border: 10px solid black;
 		float: left;
+		overflow: hidden;
 	}
-	#row1 div img:hover {
-		
+
+	#row1 div img {
+		display: block;
+		transform: translate(-130px, 0px);
+		transition: all 1s;
 	}
-	#row2 div img:hover {
-		
+	#row1 div:hover img {
+		transform: translate(0px, 0px);
 	}
-	#row3 div img:hover {
-		
+	#row2 div img {
+		display: block;
+		opacity: 0;
+		transition: all 1s;
 	}
-	#row4 div img:hover {
-		
+	#row2 div:hover img {
+		opacity: 1;
+	}
+	#row3 div img {
+		display: block;
+		transition: all 1s;
+		transform: scale(0,0);
+	}
+	#row3 div:hover img {
+		transform: scale(1,1);
+	}
+	#row4 div img {
+		display: block;
+		transition: all 1s;
+		transform: translate(0px, -130px);
+	}
+	#row4 div:hover img {
+		animation-name: row4-key;
+		animation-duration: .6s;
+        animation-direction: alternate;
+		animation-fill-mode: forwards;
+        animation-timing-function: ease;
+	}
+	@keyframes row4-key {
+		0%   { transform: translate(0px, -120px) rotate(-360deg) }
+        25%  { transform: translate(0px, -90px) rotate(-180deg) }
+        50%  { transform: translate(0px, -60px) rotate(-90deg) }
+        75%  { transform: translate(0px, -30px) rotate(-60deg) }
+        100% { transform: translate(0px, 0px) rotate(0deg) } 
 	}
 	
 	
