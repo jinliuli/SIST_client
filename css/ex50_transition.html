@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #box {
+            border: 10px solid black;
+            width: 200px; height: 200px;
+            background-color: gold;
+            margin: 200px
+        }
+        
+        /* 
+            transition, 전환
+            - 객체의 속성(값)이 변화되는 과정을 시간 순으로 보여주는 기술
+            - 수치형 속성값에 한해서
+        */
+        
+        #box {
+            /* 적용 대상 속성 */
+            /* transition-property: width, height, font-size; */
+            /* transition-property: all; */
+            
+            /* 변환 과정을 보여줄 시간 */
+            /* transition-duration: 1s; */
+            
+            transition: 1s all;
+            /* border-box(내부로들어감) 또는 content-box(겉모양 증가) 중에 확인하고 선택하기 */
+            box-sizing: content-box;
+        }
+        
+        #box:hover {
+            /* width: 400px; */
+            /* height: 400px; */
+            /* font-size: 5rem; */
+            /* font-family: '궁서체'; 숫자(수치형 속성값)이 아니라서 불가 */
+            /* opacity: 0; 서서히 사라짐 효과 */
+            /* background-color: cornflowerblue; */
+            /* border-width: 20px; 테두리가 두꺼워짐 효과 */
+            /* border-radius: 50%; 동그라미로 변함 효과 */
+            /* box-shadow: 10px 10px 5px #555; 그림자효과 */
+            /* transform: translate(100px, 0px); 왼쪽으로 움직임 */
+            /* transform: scale(-1, 1); 대칭변형 */
+            transform: rotate(360deg);
+            
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <!-- ex50_transition.html -->
+     <div id="box">상자</div>
+</body>
+</html>

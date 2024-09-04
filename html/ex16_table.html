@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- ex16_table.html -->
+
+	<h1>주소록</h1>
+	
+	<table border="1" width="600"><!-- height="287.72" 높이는 최대한 설정X  -->
+	
+		<tr bgcolor="#DDDDDD">
+			<th colspan="5">개발자 정보</th>
+		</tr>
+		<tr bgcolor="#DDDDDD"><!-- 테이블 헤더(컬럼명) -->
+			<th width="50">번호</th>
+			<th width="80">이름</th>
+			<th width="60">나이</th>
+			<th width="70">성별</th>
+			<th width="340">주소</th><!-- 모든셀의 너비를 다 더해서 테이블너비에 맞게 맞춰야됨(백분율로 맞춰지기 떄문) -->
+		</tr>
+		<!--  
+			
+			콘텐츠 너비 고정 or 변화x > 좌측 or 중앙
+			콘텐츠 너비 가변 > 좌측 
+			
+		-->
+		<tr>
+			<td align="center" rowspan="2">1</td>
+			<td align="center" rowspan="2">홍길동</td>
+			<td align="center">20</td>
+			<td align="center">남자</td>
+			<td>서울시 강남구 역삼동 한독빌딩</td>
+		</tr>
+		<tr>
+			<!-- <td align="center">1</td> -->
+			<!-- <td align="center">홍길동</td> -->
+			<td align="center" colspan="2">개발자(5년차)</td>
+			<!-- <td align="center">5년차</td> -->
+			<td>공공기관 프로젝트 참여</td>
+		</tr>
+		<tr>
+			<td align="center">2</td>
+			<td align="center">아무개</td>
+			<td align="center">22</td>
+			<td align="center">남자</td>
+			<td>서울시 강남구 대치동</td>
+		</tr>
+
+
+	</table>
+	
+</body>
+</html>

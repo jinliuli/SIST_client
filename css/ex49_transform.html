@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #box {
+            border: 10px solid black;
+            width: 200px; height: 200px;
+            background-color: gold;
+            margin: 200px
+        }
+        
+        #box:hover {
+            
+            /* 변형 중심축 */
+            /* (100px 100px)인 가운데 중심축이 바뀜 */
+            transform-origin: 0px 100px;
+             /* (50% 50%)인 box객체가 아닌 하나의 종이를 만들고 그 안에서의 %로 중심축이 변함 */
+            transform-origin: 50% 300%; 
+            
+            transform: rotate(30deg);
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- ex49_transform.html -->
+     <div id="box">
+        
+     </div>
+</body>
+</html>

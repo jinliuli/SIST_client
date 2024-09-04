@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            Opacity, 불투명도
+            - 0~1
+            - 0(투명)~1(불투명)
+            - 태그의 투명도 조절
+        */
+        
+        #box {
+            /* border: 1px solid black; */
+            /* 부모의 너비를 넓게 잡아서 안넘는다면 이미지가 개행이 되지 않는다. */
+            width: 670px;/* 128px*5 > 640px Enter + space 는  한개의 space를 나타냄 */
+        }
+        
+        /* #cat3 {
+            opacity: 0;
+        } */
+        
+        body {
+            border: 1px solid black;
+            cursor: ne-resize;/* progress > 아무렇게나 사용하지마시오 답답;; */
+        }
+        
+        #box {
+            opacity: .3;
+        }
+        
+        /* #box > img {
+            opacity: .3;
+            cursor: pointer;
+        } */
+        
+        #box > img:hover {
+            opacity: .5;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- ex24_opacity.html -->
+     <!-- 그룹이 생기면 무조건 부모박스를 만들어줌!! -->
+    <div id="box">
+        <!-- Enter + space 는  한개의 space를 나타냄 -->
+        <img src="images/catty01.png" id="cat1">
+        <img src="images/catty02.png" id="cat2">
+        <img src="images/catty03.png" id="cat3">
+        <img src="images/catty04.png" id="cat4">
+        <img src="images/catty05.png" id="cat5">
+     </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Uncaught TypeError: Cannot set properties of undefined (setting 'value') at ex03.html:8:40  > 위에서 아래로 실행되기 때문에 txt1을 아직 못만나서 value는 널값 오류임
+        // window.document.all.txt1.value = new Date();
+    </script>
+</head>
+<body>
+    <!-- ex03.html -->
+    <!-- 
+        자바스크립트 구문의 실행 순서
+        - 위 > 아래
+        - HTML과 JavaScript를 동시에 실행(***)
+        
+    -->
+        <input type="text" name="txt1" size="50">
+        
+        <script>
+            // Tue Sep 03 2024 11:42:25 GMT+0900 (GMT+09:00)
+            // alert(new Date());
+            
+            // window.document.all.txt1.value = new Date();
+            
+            // 디버깅 방법
+            // - 값 확인 > 출력
+            // 1. alert(값); > 편법
+            // 2. document.write(값); > 편법
+            // 3. consol.log(값); > 정석
+            
+            // document.write(new Date());
+            console.log(new Date());
+            
+            
+        </script>
+</body>
+</html>

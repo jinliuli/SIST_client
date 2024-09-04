@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex22_images.html -->
+    <h1>이미지</h1>
+    
+    <input type="button" value="버튼" name="btn1">
+    <hr>
+    
+    <img src="images/cat01.jpg" name="cat1">
+    
+    <script>
+        
+        window.document.all['btn1'].onclick = m1;
+        
+        function m1() {
+            // window.document.all[인덱스]
+            // window.document.all['cat1']
+            // window.document.images['cat1'].width = 500;/* HTML속성은 단위를 안적으면 px이 기본값 */
+            // window.document.images['cat1'].height = 100;
+            
+            // window.document.images['cat1'].src = 'images/cat02.jpg';
+        }
+        
+        window.document.images['cat1'].onclick = m2;
+        
+        window.document.images['cat1'].onmouseover = m3;
+        window.document.images['cat1'].onmouseout = m4;
+        
+        function m2() {
+            window.document.images['cat1'].src = 'images/cat03.jpg';
+        }
+        
+        function m3() {
+            window.document.images['cat1'].src = 'images/cat02.jpg';
+        }
+        
+        function m4() {
+            window.document.images['cat1'].src = 'images/cat01.jpg';
+        }
+        
+    </script>
+    
+</body>
+</html>
