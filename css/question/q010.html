@@ -4,12 +4,71 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-
-	
+	#box {
+		border: 30px dashed #999;
+		width: 700px;
+		height: 700px;
+	}
+	.time {
+		border: 20px solid #666;
+		font-variant: small-caps;
+		color: white;
+		font-family: Verdana;
+		font-size: x-small;
+		border-radius: 60px;
+		text-align: center;
+		padding-top: 30px;
+	}
+	.time #first-letter {
+		font-weight: bold;
+		font-size: medium;
+	}
+	#box #hour {
+		width: 50px;
+		height: 140px;
+		background-color: tomato;
+		transform: translate(300px, 140px);
+	}
+	#box #min {
+		width: 50px;
+		height: 220px;
+		background-color: cornflowerblue;
+		transform: translate(300px, -150px);
+	}
+	#box #sec {
+		width: 50px;
+		height: 290px;
+		background-color: gold;
+		transform: translate(300px, -510px);
+	}
+	#box:hover #hour {
+		animation-name: keyHour;
+		/* transform-origin: 50% 300%; 
+		transform: rotate(45deg); */
+	}
+	#box:hover #min {
+		/* transform-origin: 300% 150%; 
+		transform: rotate(45deg); */
+	}
+	#box:hover #sec {
+		/* transform-origin: 50% 300%; 
+		transform: rotate(45deg); */
+	}
+	@keyframes keyHour {
+		0%   { transform: translate(0px, 0px) rotate(45deg); }
+        25%  { transform: translate(300px, 0px); }
+        50%  { transform: translate(300px, 300px); }
+        75%  { transform: translate(0px, 300px); }
+        100% { transform: translate(0px, 0px); }
+	}
 </style>
 </head>
 <body>
 	<!-- q010.html -->
-	
+	<div id="box">
+		<div id="hour" class="time"><span id="first-letter">H</span>OUR</div>
+		<div id="min" class="time"><span id="first-letter">M</span>IN</div>
+		<div id="sec" class="time"><span id="first-letter">S</span>EC</div>
+	</div>
 </body>
 </html>
