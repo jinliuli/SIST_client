@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            border: 1px solid gray;
+            border-radius: 3px;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        fieldset input {
+            display: block;
+            margin-bottom: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- ex29_timer.html -->
+     <h1>타이머</h1>
+     
+     <form name="form1">
+        <fieldset>
+            <legend>setTimeout</legend>
+            <input type="button" name="btn1" value="버튼1">
+            <input type="button" name="btn2" value="버튼2">
+            <input type="text" name="txt1">
+        </fieldset>
+        <fieldset>
+            <legend>setInterval</legend>
+            <input type="button" name="btn3" value="버튼3">
+            <input type="button" name="btn4" value="버튼4">
+            <input type="text" name="txt2">
+        </fieldset>
+        <fieldset>
+            <legend>타이머통제하기</legend>
+            <input type="button" name="btn5" value="버튼5">
+            <input type="button" name="btn6" value="버튼6">
+            <input type="text" name="txt3">
+        </fieldset>
+     </form>
+     
+     
+     <fieldset>
+        <legend>고양이</legend>
+        <img src="images/catty01.png" name="cat">
+     </fieldset>
+     
+     
+     <script>
+        
+        var btn1 = document.form1.btn1;
+        var btn2 = document.form1.btn2;
+        var btn3 = document.form1.btn3;
+        var btn4 = document.form1.btn4;
+        var btn5 = document.form1.btn5;
+        var btn6 = document.form1.btn6;
+        
+        var txt1 = document.form1.txt1;
+        var txt2 = document.form1.txt2;
+        var txt3 = document.form1.txt3;
+        
+        /* 
+            타이머, Timer
+            
+            1. setTimeout(할일, 시간)
+                - 1회성 타이머
+            
+            2. setInterval(할일, 시간)
+                - 반복 타이머
+            
+            3. clearTimeout(타이머 ID)
+                - setTimeout 종료
+                
+            4. clearInterval(타이머 ID)
+                - setInterval 종료
+            
+        */
+        
+        var timer;
+        
+        btn1.onclick = m1;
+        function m1() {
+            //3000밀리언초 뒤에 f1을 실행
+            timer = setTimeout(f1, 3000);
+            console.log(timer);
+        }
+        function f1() {
+            // alert('알람!');
+            txt1.value = new Date().toLocaleTimeString();
+        }
+        
+        btn2.onclick = m2;
+        function m2() {
+            clearTimeout(timer);
+        }
+        
+        //전자시계만들기
+        btn3.onclick = m3;
+        function m3() {
+            timer = setInterval(f3, 3000);
+        }
+        function f3() {
+            // alert('따르릉 따르릉!');
+            txt2.value = new Date().toLocaleTimeString();
+        }
+        
+        btn4.onclick = m4;
+        function m4() {
+            clearInterval(timer);
+        }
+        
+        //타이머(스탑워치)만들기
+        //시작버튼을 두번 눌렀을때는 통제가 안된다
+        var n = 1;
+        timer = 0; //한번만 누르도록 통제
+        var timerList = []; //배열을 만들어서 통제
+        
+        btn5.onclick = m5;
+        function m5() {
+            // timer = setInterval(f5, 100); //1 > 2 + 3
+            
+            //한번만 누르도록 통제 > 두번이상 못누르도록 > 이어서 시작을 못함
+            // if (timer == 0) {
+            //     timer = setInterval(f5, 100); 
+            // }
+            
+            //배열을 만들어서 통제
+            timer = setInterval(f5, 100);
+            timerList.push(timer);
+            // console.log(timer);
+            
+        }
+        function f5() {
+            txt3.value = n;
+            n++;
+        }
+        
+        btn6.onclick = m6;
+        function m6() {
+            // clearInterval(timer); //1 > 3번만 지움
+            // timer = 0;
+            
+            //순차적으로 중지
+            // clearInterval(timerList.pop());
+            
+            //일괄 중지
+            for (var i=0; i<timerList.length; i++) {
+                clearInterval(timerList[i]);
+            }
+            
+        }
+        
+        
+        //-----------------------------------------------
+        //고양이
+        n = 1;
+        timer = 0;
+        document.images['cat'].onclick = m7;
+        function m7() {
+            if (timer == 0) {
+                timer = setInterval(f7, 100);
+            } else {
+                clearInterval(timer);
+                timer = 0;
+            }
+        }
+        function f7() {
+            // document.images['cat'].width++;    
+            n++;
+            if (n > 9) n = 1;
+            document.images['cat'].src = 'images/catty0' + n + '.png';
+        }
+        
+        
+        
+        
+        
+     </script>
+     
+</body>
+</html>
