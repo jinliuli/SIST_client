@@ -7,6 +7,7 @@
     <style>
         h1 {
             color: #777;
+            font-weight: bold;
         }
         div {
             color: #555;
@@ -28,13 +29,13 @@
     <h1>데이터 입력</h1>
     <form name="form1">
         <div>
-            이름 : <input type="text" name="name">
+            이름 : <input type="text" name="txtName">
         </div>
         <div>
-            나이 : <input type="text" name="age">
+            나이 : <input type="text" name="txtAge">
         </div>
         <div>
-            별명 : <input type="text" name="nikname">
+            별명 : <input type="text" name="txtNick">
         </div>
         <div>
         <input type="button" name="btnLong" value="Long">
@@ -45,15 +46,26 @@
     
     <script>
         
-        document.form1.btnLong.onclick = m1;
-        document.form1.btnShort.onclick = m2;
+        var txtName = document.form1.txtName;
+        var txtAge = document.form1.txtAge;
+        var txtNick = document.form1.txtNick;
+        var btnLong = document.form1.btnLong;
+        var btnShort = document.form1.btnShort;
         
+        btnLong.onclick = m1;
+        btnShort.onclick = m2;
         
         function m1() {
-            document.
+            // alert('Long');
+            txtName.size = 50;
+            txtAge.size = 50;
+            txtNick.size = 50;
         }
         function m2() {
-            
+            // alert('Short');
+            txtName.size = 10;
+            txtAge.size = 10;
+            txtNick.size = 10;
         }
         
     </script>
