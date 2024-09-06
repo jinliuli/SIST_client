@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #table1 { border: 1px solid black; border-collapse: collapse; }
+        #table1 td { border: 1px solid black; width: 100px; height: 100px;}
+    </style>
+</head>
+<body>
+    <!-- ex37.html -->
+     <table id="table1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+     </table>
+     
+     <script>
+        
+        var list = document.querySelectorAll('#table1 td');
+        var index = 0;
+        
+        list[index].bgColor = 'gold';
+        
+        window.addEventListener('keydown', m1);
+        function m1() {
+            
+            list[index].bgColor = 'transparent';
+            
+            //38은 위에 화살표 40은 아래 화살표
+            if (event.keyCode == 39) {
+                index++; 
+                if (index >= list.length) {
+                    // index--;//끝에 못나가게 막기
+                    index = 0;
+                }
+            } else if (event.keyCode == 37) {
+                index--;
+                if (index < 0) {
+                    // index = 0;//맨처음에 못나가게 막기
+                    index = list.length - 1;
+                }
+            }
+            
+            list[index].bgColor = 'gold';
+            
+        }//m1
+        
+        
+        
+     </script>
+     
+     
+</body>
+</html>
