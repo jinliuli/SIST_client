@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box { padding: 50px; }
+        #p1 { background-color: tomato; }
+        #p2 { background-color: gold; }
+        #p3 { background-color: cornflowerblue; }
+    </style>
+</head>
+<body>
+    <!-- ex47_event.html -->
+    <div id="p1" class="box">
+        <div id="p2" class="box">
+            <div id="p3" class="box">
+                
+            </div>
+        </div>
+    </div> 
+    
+    <hr>
+    
+    <input type="text" id="txt1">
+    
+    <script>
+        
+        //이벤트 버블링(Event Bubbling)
+        // vs 이벤트 터널링(Event Tunneling)
+        //    이벤트 캡쳐링(Event Caputring)
+        
+        //BOM > 이벤트 버블링(O), 터널링(X)
+        //DOM > 이벤트 버블링(O), 터널링(O)
+        
+        
+        const p1 = document.getElementById('p1');
+        const p2 = document.getElementById('p2');
+        const p3 = document.getElementById('p3');
+        
+        
+        //파란네모칸 클릭시 (이벤트전파 발생) document->html->body->p1->p2->p3(여기서부터 올라가면서 함수실제로 실행)->p2->p1->body->html->document
+        
+        // document.body.onclick = function() {
+        //     alert('body');
+        // };
+        
+        
+        //버블링 > BOM방식
+        // p1.onclick = function() {
+        //     alert('빨강');
+        // };
+        
+        // p2.onclick = function() {
+        //     alert('노랑');
+        //     event.stopPropagation(); //표준
+        // };
+        
+        // p3.onclick = function() {
+        //     alert('파랑');
+        //     // event.cancelBubble = true; //비표준
+        //     event.stopPropagation(); //표준
+        // };
+        
+        
+        
+        window.onkeydown = function() {
+            if (event.keyCode == 51) { //51 = '3'
+                location.href = 'http://naver.com';
+            }
+        };
+        
+        document.getElementById('txt1').onkeydown = function() {
+          event.stopPropagation();  
+        };
+        
+        
+        
+
+        //터널링 > DOM 방식
+        p1.addEventListener('click', function() {
+            alert('red');
+            event.stopPropagation();
+        }, true);
+        
+        p2.addEventListener('click', function() {
+            alert('yellow');
+        }, true);
+        
+        p3.addEventListener('click', function() {
+            alert('blue');
+        }, true);
+        
+        p1.addEventListener('click', function() {
+            alert('red');
+        });
+        
+        p2.addEventListener('click', function() {
+            alert('yellow');
+        });
+        
+        p3.addEventListener('click', function() {
+            alert('blue');
+        });
+        
+        
+        
+        
+    </script>
+    
+    
+</body>
+</html>
