@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex39_hoisting.html -->
+     
+    <script>
+        
+        //호이스팅, Hoisting
+        //- 함수 호이스팅(***)
+        //- 변수 호이스팅
+        
+        //선언 > 사용
+        
+        let a = 10;
+        console.log(a);
+        
+        f1();
+        
+        function f1() {
+            alert('f1');
+        }
+        
+        
+        var b = 20;
+        console.log(b);
+        
+        
+        // console.log(c); //undefined
+        // var c =  30;
+        
+        //let하고 000도 호이스팅되지만 오류나지 않도록 컴퓨터에서 막고있다
+        //함수는 선언하고 사용해야한다
+        console.log(d);
+        let d = 40;
+        
+        
+    </script> 
+    
+</body>
+</html>
