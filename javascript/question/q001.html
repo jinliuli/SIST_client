@@ -52,16 +52,16 @@
         var btnLong = document.form1.btnLong;
         var btnShort = document.form1.btnShort;
         
-        btnLong.onclick = m1;
-        btnShort.onclick = m2;
+        btnLong.onclick = resizeLong;
+        btnShort.onclick = resizeShort;
         
-        function m1() {
+        function resizeLong() {
             // alert('Long');
             txtName.size = 50;
             txtAge.size = 50;
             txtNick.size = 50;
         }
-        function m2() {
+        function resizeShort() {
             // alert('Short');
             txtName.size = 10;
             txtAge.size = 10;
