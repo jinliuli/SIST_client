@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #table1 { border: 1px solid black; border-collapse: collapse;}
+        #table1 td { border: 1px solid black; padding: 10px 20px;}
+    </style>
+</head>
+<body>
+    <!-- ex48_event.html -->
+    <h1>테이블</h1> 
+    
+    <!-- table#tbl1>tr*10>td{item}*5 -->
+    <table id="table1">
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+    </table>
+    
+    
+    <script>
+        
+        const tr = document.querySelectorAll('#table1 tr');
+        tr.forEach(row => {
+            
+        // console.log(row.nodeName);
+            
+           row.onmouseover = function() {
+            // alert();
+            
+            //평상시 > target
+            //문제   > currentTarget
+            
+            
+            //event.target 은 U턴하는 객체를 말함
+            // event.target.bgColor = 'gold';
+            // event.srcElement.bgColor = 'gold';
+            
+            event.currentTarget.bgColor = 'gold'; //1.
+            // this.bgColor = 'gold'; //2.
+            // row.bgColor = 'gold';//3.
+            
+           }; 
+           row.onmouseout = function() {
+                event.currentTarget.bgColor = 'transparent';
+           };
+        });
+        
+        
+        
+        
+    </script>
+    
+    
+</body>
+</html>
