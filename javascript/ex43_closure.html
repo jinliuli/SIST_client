@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex43_closure.html -->
+     
+    <input type="button" value="버튼1" id="btn1">
+    <input type="button" value="버튼2" id="btn2">
+    
+    <script>
+        
+        //클로저, Closure
+        
+        //전역 함수
+        function outer() {
+            
+            //지역 변수(outer을 영역으로 하는)
+            let a = 10;
+            console.log('a', a);
+            
+            //지역함수(outer)
+            function inner() {
+                
+                //지역 변수(inner)
+                let b = 2;
+                console.log('b', b);
+            }
+            
+            inner();
+            // console.log('b', b);
+            
+            
+            
+            
+        }//outer
+        
+        outer();
+        // console.log('a', a);
+        
+        // inner();
+        // outer.inner();
+        
+        
+        const bt1 = document.getElementById('btn1');
+        const bt2 = document.getElementById('btn2');
+        
+        let num1 = 100; //전역 변수
+        
+        btn1.onclick = function() {
+            
+            console.log('num1', num1);
+            
+            
+            let num2 = 200; //지역 변수 (btn1.onclick) 
+            console.log('num2', num2);
+            //num2는 버튼1을 클릭하면 실행되고 바로 사라짐 
+            //   > 버튼 2를 클릭하면 closer현상 발생!! (이벤트 호출시) 지역자원에서 언제 또 실행이 될지 모르기 때문에 복사본을 남겨둠.. 
+            
+            
+            btn2.onclick = function() {
+                
+                let num3 = 300; //지역 변수(btn2.onclick)
+                console.log('num3', num3);
+                // num2 = 2000; // js는 복사본수정가능(closer현상으로) // java는 수정불가
+                console.log('num2', num2); //********** 오류 > num2 is not defined
+                console.log('num1', num1);
+                
+            }
+            
+        }
+        
+        
+        
+        
+    </script>
+    
+</body>
+</html>
