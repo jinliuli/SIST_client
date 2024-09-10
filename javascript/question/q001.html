@@ -14,10 +14,10 @@
             margin-bottom: 15px;
             
         }
-        form > div > input[type=text] {
+        /* form > div > input[type=text] {
             width: 180px;
             height: 18px;
-        }
+        } */
         form > div > input[type=button] {
             width: 50px;
             height: 20px;
@@ -27,47 +27,50 @@
 <body>
     <!-- q001.html -->
     <h1>데이터 입력</h1>
-    <form name="form1">
+    <form id="form1">
         <div>
-            이름 : <input type="text" name="txtName">
+            이름 : <input type="text" id="txtName" class="txt">
         </div>
         <div>
-            나이 : <input type="text" name="txtAge">
+            나이 : <input type="text id="txtAge" class="txt">
         </div>
         <div>
-            별명 : <input type="text" name="txtNick">
+            별명 : <input type="text" id="txtNick" class="txt">
         </div>
         <div>
-        <input type="button" name="btnLong" value="Long">
-        <input type="button" name="btnShort" value="Short">
+        <input type="button" id="btnLong" value="Long">
+        <input type="button"  id="btnShort" value="Short">
         </div>
     </form>
     
     
     <script>
         
-        var txtName = document.form1.txtName;
-        var txtAge = document.form1.txtAge;
-        var txtNick = document.form1.txtNick;
-        var btnLong = document.form1.btnLong;
-        var btnShort = document.form1.btnShort;
+        const btnLong = document.getElementById('btnLong');
+        const btnShort = document.getElementById('btnShort');
+        const txtName = document.getElementById('txtName');
+        const txtAge = document.getElementById('txtAge');
+        const txtNick = document.getElementById('txtNick');
         
-        btnLong.onclick = resizeLong;
-        btnShort.onclick = resizeShort;
+        btnLong.addEventListener('click', function() {
+            const name = window.getComputedStyle(txtName);
+            // const age = window.getComputedStyle(txtAge);
+            // const nick = window.getComputedStyle(txtNick);
+            let width = name.getPropertyValue('width');
+            txtName.style.width = '440px';
+            txtAge.style.width = '440px';
+            txtNick.style.width = '440px';
+        });
         
-        function resizeLong() {
-            // alert('Long');
-            txtName.size = 50;
-            txtAge.size = 50;
-            txtNick.size = 50;
-        }
-        function resizeShort() {
-            // alert('Short');
-            txtName.size = 10;
-            txtAge.size = 10;
-            txtNick.size = 10;
-        }
-        
+        btnShort.addEventListener('click', function() {
+            const name = window.getComputedStyle(txtName);
+            let width = name.getPropertyValue('width');
+            
+            txtName.style.width = '180px';
+            txtAge.style.width = '180px';
+            txtNick.style.width = '180px';
+            
+        });
     </script>
 </body>
 </html>
