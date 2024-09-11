@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex02.html -->
+    <h1>jQuery() 함수</h1>
+    
+    <input type="button" value="버튼" name="btn1" id="btn1">
+    <hr>
+    <div id="box1" class="box">상자1</div>
+    <div id="box2" class="box">상자2</div>
+    <div id="box3" class="box">상자3</div>
+    <div id="box4" class="box">상자4</div>
+    <div id="box5" class="box">상자5</div>
+    
+    <!-- 로컬설치(스크립트작업전에) -->
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+        //작업
+        /* 
+            
+            jQuery() 함수
+            - CSS 선택자를 사용해서 태그를 검색한다.
+            - 자바스크립트 객체를 jQuery 객체로 변환한다.
+            - 동적으로 태그를 생성한다.
+            
+            - 항상 검색 결과가 배열이다.
+            - 검색된 결과에 메소드를 적용하면 > 자동으로 모든 요소에 대해 일괄 적용이 된다.(자동으로 루프 실행)
+        */
+       
+        document.getElementById('btn1').onclick = function() {
+            
+            // jQuery('#btn1').css('color', 'blue');
+            
+            //목적] box를 모두 찾아 조작하시오.
+            
+            
+            //-----------------------------------------------------
+            //1. DOM
+            const list = document.getElementsByClassName('box');
+            
+            // for (let i=0; i<list.length; i++) {
+            //     list[i].style.color = 'blue';
+            // }
+            
+            //console.log(list.constructor);
+            //유사배열 > (변환) > 순수배열
+            // list.foEach(box => box.style.color = 'blue'); //유사배열
+            // Array.from(list).foEach(box => box.style.color = 'blue'); //순수배열
+            
+            
+            
+            //-----------------------------------------------------
+            //2. jQuery
+            const list2 = jQuery('.box');
+            // alert(list2.lenght)
+            
+            // for (let i=0; i<list2.length; i++) {
+            //     list2[i].style.color = 'blue'; //설명추가
+            // }
+            
+            //jQuery('.클래스명') 모든 애들을 알아서 다 for문 돌림
+            //jQuery('.box').css('color', 'blue');
+            
+            
+            
+            //-----------------------------------------------------
+            //선택자 테스트
+            // jQuery('div').css('color', 'blue');
+            // jQuery('#box1').css('color', 'blue');
+            // jQuery('.box').css('color', 'blue');
+            jQuery('.box:nth-child(even)').css('color', 'blue');
+            //-----------------------------------------------------
+            
+            
+            
+            //*** 주의!!
+            const a = document.all.btn1; //BOM
+            const b = document.getElementById('btn1'); //DOM
+            const c = jQuery('#btn1'); //jQuery
+            
+            // alert(a === b); //true
+            // alert(a === c); //false (내부타입이 다름 (자료형이 다름))
+            // console.log(a.constructor); //ƒ HTMLInputElement() { [native code] }
+            // console.log(c.constructor); //ƒ ( selector, context ) {...
+            
+            
+            // a.value = '하하';
+            // a.val('호호'); // a.val is not a function at document.getElementById.onclick
+            
+            // c.val('호호');
+            // c.value = '하하'; //자바스트립이라서 불가
+            
+            
+            //BOM(DOM) 객체 > (형변환) > jQuery 객체
+            // a.val('호호');
+            // jQuery(a).val('호호');
+            
+            //jQuery 객체 > (형변환) > BOM(DOM) 객체
+            // c.value = '호호'; //배열
+            c[0].value = '호호';
+            
+            
+        };
+        
+    </script>
+</body>
+</html>

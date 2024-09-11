@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            border: 20px solid black;
+            width: 200px; height: 200px;
+            padding: 30px; margin: 50px;
+            background-color: gold;
+            box-sizing: content-box;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex06.html -->
+    <h1>jQuery + Box Model</h1>
+    
+    <input type="button" value="버튼1" id="btn1">
+    <hr>
+    
+    <div id="box1">상자</div>
+    
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+        
+        //상자의 크기?
+        
+        //1. CSS 속성
+        console.log('width', $('#box1').css('width')); //200px
+        console.log('height', $('#box1').css('height')); //200px
+        // $('#box1').css('width', '400px');
+        
+        //2. 정용 메서드 > 단위(px)
+        console.log('width', $('#box1').width()); //200
+        console.log('height', $('#box1').height()); //200
+        // $('#box1').width(400);
+        
+        //3. width/height + padding = gold 영역
+        console.log('innerWidth', $('#box1').innerWidth()); //260(패딩값포함)
+        console.log('innerHeight', $('#box1').innerHeight()); //260(패딩값포함)
+        
+        //4. width/height + padding + border = 테두리를 포함한 실제 상자
+        console.log('outerWidth', $('#box1').outerWidth()); //300(테두리포함)
+        console.log('outerHeight', $('#box1').outerHeight()); //300(테두리포함)
+        
+        //5. width/height + padding + border + margin 
+        console.log('outerWidth', $('#box1').outerWidth(true)); //400(마진값포함)
+        console.log('outerHeight', $('#box1').outerHeight(true)); //400(마진값포함)
+        
+    </script>
+</body>
+</html>
