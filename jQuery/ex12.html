@@ -8,10 +8,10 @@
         /* 
             
             웹 페이지 색상
-            1. 주력색 > 17153B
-            2. 보조색 > 2E236C
-            3. 글자색 > 433D8B
-            4. 배경색 > C8ACD6
+            1. 주력색 > 161A30
+            2. 보조색 > 31304D
+            3. 글자색 > B6BBC4
+            4. 배경색 > F1F6F9
             
         */
         
@@ -19,7 +19,7 @@
             --main-color: #161A30;
             --sub-color: #31304D;
             --text-color: #B6BBC4;
-            --back-color: #F0ECE5;
+            --back-color: #F1F6F9;
         }
         
         html, body {
@@ -899,20 +899,18 @@
         
         
         $('header nav span a').click(() => {
-            
-            
-            // alert(event.target.href.substr(event.target.href.indexOf('#')));
-            
+
+            //alert(event.target.href.substr(event.target.href.indexOf('#')));
+
             let id = event.target.href.substr(event.target.href.indexOf('#'));
-            
+
             $('html, body').animate({
-                    scrollTop: $('id').position().top - 50
+                scrollTop: $(id).position().top - 50
             }, $(id).position().top / 10);
-            
+
             //기존의 행동을 제거
             event.stopPropagation();
             return false;
-            
         });
         
         
