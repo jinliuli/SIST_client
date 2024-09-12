@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/hot-sneaks/jquery-ui.css">
+    <style>
+        #a1 {
+            width: 300px;
+        }
+        #dialog1 {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex18_ui.html -->
+    <h1>컨트롤</h1>
+    
+    <!-- 다이얼로그 -->
+    <input type="button" value="확인" id="btn5">
+    <div id="dialog1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore sit eaque laudantium omnis deleniti alias dolore delectus expedita quae quia harum recusandae exercitationem in voluptatibus, voluptas unde magni adipisci saepe?
+    </div>
+    
+    
+    
+    <hr>
+    
+    <!-- 날짜 -->
+    <div>
+        <label>날짜 선택(HTML5): </label>
+        <input type="date">
+    </div>
+    
+    <div>
+        <label>날짜 선택(jQuery UI): </label>
+        <input type="text" id="date1">
+    </div>
+    
+    <hr>
+    
+    
+    
+    <!-- button -->
+    <input type="button" value="글쓰기" id="btn1" class="btn">    
+    <input type="button" value="돌아가기" id="btn2" class="btn">    
+    
+    <hr>
+    
+    <div id="btns">
+        <input type="button" value="글쓰기" id="btn1" class="btn">    
+        <input type="button" value="돌아가기" id="btn2" class="btn">    
+    </div>
+    
+    <hr>
+    
+    <a href="https://naver.com" class="btn">네이버</a>
+    
+    <hr>
+    
+    
+    
+    <!-- Accordion -->
+    
+    <div id="a1">
+        <h2>HTML</h2>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate ab incidunt ipsam repellendus, pariatur quam quaerat aperiam omnis dicta quae in amet porro ipsa. Beatae voluptatibus impedit quisquam minima iusto.</div>
+        
+        <h2>CSS</h2>
+        <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores unde voluptatibus omnis nesciunt. Fuga rem accusantium tenetur iusto, veniam aspernatur soluta repudiandae at! Facilis iure, dignissimos porro dolorum nostrum beatae.</div>
+        
+        <h2>JavaScript</h2>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam quis iure quia earum eius consequuntur nulla dolores eaque illum et obcaecati distinctio animi illo assumenda, amet possimus voluptate molestiae neque!</div>
+    </div>
+    
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+    <script>
+        
+        $('#a1').accordion({
+            collapsible: true
+        });
+        
+        $('.btn').button();
+        $('#btns').controlgroup();
+        
+        $('#date1').datepicker({
+            dateFormat: 'yy-mm-dd',
+            // minDate: -5, //5일전까지만 선택가능
+            // maxDate: 3 //3일후까지만 선택가능
+            // minDate: '-1M -5D',
+            // maxDate: '1M 3D'
+            minDate: '2024-06-19',
+            maxDate: '2024-12-03'
+        });
+        
+        
+        
+        // $('#dialog1').hide();
+        
+        /* 
+            대화 상자(팝업창)
+            1. modal
+                - 팝업창이 포커스를 독점한다.
+                - 팝업창이 더 우선순위일때 사용
+                - 사용 권장
+                
+            2. moddeless
+                - 팝업창과 부모창의 포커스 전환이 자유롭다.
+                - ex)검색창
+            
+            
+        */
+        
+        $('#btn5').click(() => {
+            
+            $('#dialog1').dialog({
+                title: '대화 상자',
+                width: 300,
+                height: 400,
+                draggable: true,
+                resizable: false, //기본으로 크기조절 가능
+                modal: true, //대화상자로 포커스
+                buttons: {
+                    // 'text': function() {
+                    //     alert();
+                    // }
+                    '확인': function() {
+                        
+                    },
+                    '취소': function() {
+                        $('#dialog1').dialog('close');//대화상자 닫기
+                    }
+                }
+            });
+            
+        });
+        
+    </script>
+</body>
+</html>
